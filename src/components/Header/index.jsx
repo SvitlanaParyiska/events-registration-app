@@ -6,12 +6,10 @@ const Header = () => {
   // const currentUrl = useLocation();
 
   return (
-    <div>
+    <div className="header-container">
       <nav>
         <NavLink to="/">Logo</NavLink>
         <NavLink to="/events">Events</NavLink>
-        <NavLink to="/participants">participant</NavLink>
-        <NavLink to="/registration">registration</NavLink>
         <NavLink to="/favorites">favorites</NavLink>
       </nav>
     </div>

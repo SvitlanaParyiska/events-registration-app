@@ -19,8 +19,8 @@ const App = () => {
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="events" element={<EventsPage />} />
-          <Route path="participants" element={<ParticipantsPage />} />
-          <Route path="registration" element={<RegistrationPage />} />
+          <Route path="participants/:id" element={<ParticipantsPage />} />
+          <Route path="registration/:id" element={<RegistrationPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

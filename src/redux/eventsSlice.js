@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getEventsList } from "./eventsOperations";
+import { getEventInfo, getEventsList } from "./eventsOperations";
 
 const initialState = {
-  eventsList: [],
-  eventParticipants: [],
+  eventsList: {
+    events: [],
+    totalPages: 1,
+  },
+  eventFull: null,
   favorites: [],
   filter: "",
   isLoading: false,
@@ -30,7 +33,11 @@ const eventsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getEventsList.fulfilled, (state, { payload }) => {
-        state.eventsList = payload.events;
+        state.eventsList.events = payload.events;
+        state.eventsList.totalPages = payload.pages;
+      })
+      .addCase(getEventInfo.fulfilled, (state, { payload }) => {
+        state.eventFull = payload;
       })
       .addMatcher((action) => action.type.endsWith("/pending"), handlePending)
       .addMatcher((action) => action.type.endsWith("/rejected"), handleRejected)
