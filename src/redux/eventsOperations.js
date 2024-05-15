@@ -32,7 +32,6 @@ export const getEventInfo = createAsyncThunk(
 export const addNewParticipant = createAsyncThunk(
   "events/addParticipant",
   async ({ id, body }, thunkAPI) => {
-    console.log(id, body);
     try {
       const data = await addEventParticipant(id, body);
       return data;

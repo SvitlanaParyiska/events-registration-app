@@ -1,9 +1,21 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+export const FormStyled = styled.form`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid var(--color-text-accent);
+  border-radius: 5px;
+  padding: 10px;
+`;
 
 export const ErrorMessage = styled.div`
   font-family: inherit;
   color: ${(props) => props.color || "#dc3b5a"};
-  margin-top: 4px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   line-height: 1.17;
   font-size: 14px;
 `;
@@ -25,7 +37,6 @@ export const InputStyled = styled.input`
   background: none;
   color: inherit;
   outline: none;
-  /* background-color: var(--color-background) !important; */
   &:focus {
     border: 1px solid #1e1e1e;
   }
@@ -42,5 +53,47 @@ export const InputStyled = styled.input`
       font-size: 16px;
       line-height: 1.19;
     }
+  }
+`;
+
+export const BoxStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const LinkStyled = styled(Link)`
+  display: inline-block;
+  margin-top: 44px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  background-color: #45b39d;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.43;
+  color: #fff;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: #16a085;
+  }
+`;
+
+export const ButtonStyled = styled.button`
+  display: block;
+  border: none;
+  margin-top: 44px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  background-color: #45b39d;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.43;
+  color: #fff;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: #16a085;
   }
 `;

@@ -1,3 +1,4 @@
+import { Card, CardContent, Typography } from "@mui/material";
 import PropTypes from "prop-types";
 
 const ParticipantsItem = ({ item }) => {
@@ -6,8 +7,16 @@ const ParticipantsItem = ({ item }) => {
   };
   return (
     <li>
-      <h3>{item.name}</h3>
-      <p>{item.email}</p>
+      <Card sx={{ width: 300 }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {item.name}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {item.email}
+          </Typography>
+        </CardContent>
+      </Card>
     </li>
   );
 };

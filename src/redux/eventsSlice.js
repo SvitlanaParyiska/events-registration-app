@@ -32,23 +32,11 @@ const eventsSlice = createSlice({
   initialState,
   reducers: {
     addFavorite: (state, { payload }) => {
-      const isUserId = state.favorites.findIndex(
-        (item) => item.userId === payload.userId
-      );
-      if (isUserId === -1) {
-        state.favorites.push({ userId: payload.userId, list: [payload.item] });
-      } else {
-        state.favorites[isUserId].list.push(payload.item);
-      }
+      state.favorites.push(payload);
     },
     removeFavorite: (state, { payload }) => {
-      const isUserId = state.favorites.findIndex(
-        (item) => item.userId === payload.userId
-      );
-      const index = state.favorites[isUserId].list.findIndex(
-        (item) => item.name === payload.itemName
-      );
-      state.favorites[isUserId].list.splice(index, 1);
+      const index = state.favorites.findIndex((item) => item._id === payload);
+      state.favorites.splice(index, 1);
     },
     setFilter: (state, { payload }) => {
       state.filter = payload;

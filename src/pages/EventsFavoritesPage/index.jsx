@@ -1,8 +1,9 @@
 import EventsList from "../../components/EventsList";
 import Title from "../../components/Title";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 import { selectFavorites } from "../../redux/eventsSelectors";
+import { LinkStyled } from "./EventsFavoritesPage.styled";
 
 const EventsFavoritesPage = () => {
   const favArr = useSelector(selectFavorites);
@@ -17,7 +18,7 @@ const EventsFavoritesPage = () => {
       ) : (
         <>
           <p>Your favorites list is empty.</p>
-          <Link to="/events">View the list of events</Link>
+          <LinkStyled to="/events">View the list of events</LinkStyled>
         </>
       )}
     </div>

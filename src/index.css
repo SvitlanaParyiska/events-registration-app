@@ -9,7 +9,7 @@
 
   /* text */
   --color-text-primary: rgba(17, 16, 28, 0.5);
-  --color-text-accent: #11101c;
+  --color-text-accent: #05584b;
   --color-text-secondary: #fbfbfb;
 
   /* border */
@@ -98,7 +98,7 @@ img {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 152px 50px 100px 50px;
+  padding: 100px 50px 100px 50px;
 }
 
 @media screen and (min-width: 1440px) {

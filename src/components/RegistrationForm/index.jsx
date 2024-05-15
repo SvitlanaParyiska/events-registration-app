@@ -4,8 +4,14 @@ import { useDispatch } from "react-redux";
 import { addNewParticipant } from "../../redux/eventsOperations";
 import { addParticipantsSchema } from "../../helpers/validationSchemas";
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
-import { ErrorMessage, InputStyled } from "./RegistrationForm.styled";
+import {
+  BoxStyled,
+  ButtonStyled,
+  ErrorMessage,
+  FormStyled,
+  LinkStyled,
+} from "./RegistrationForm.styled";
+import { TextField } from "@mui/material";
 
 const RegistrationForm = ({ id }) => {
   RegistrationForm.propTypes = {
@@ -22,12 +28,7 @@ const RegistrationForm = ({ id }) => {
     },
     validationSchema: addParticipantsSchema,
     onSubmit: async (values, actions) => {
-      console.log(id, {
-        name: values.fullName,
-        email: values.email,
-        dateOfBirth: values.dateOfBirth,
-        hearInfo: values.info,
-      });
+
       dispatch(
         addNewParticipant({
           id,
@@ -49,18 +50,20 @@ const RegistrationForm = ({ id }) => {
 
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
+      <FormStyled onSubmit={formik.handleSubmit}>
         <div>
-          <label htmlFor="fullName">Full name</label>
-          <InputStyled
+          <TextField
+            id="outlined"
             type="text"
+            label="Full name"
+            color="success"
             name="fullName"
             placeholder="Fill in your full name"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.fullName}
-            $error={formik.errors.fullName && formik.touched.fullName}
-            $success={
+            error={formik.errors.fullName && formik.touched.fullName}
+            success={
               !formik.errors.fullName &&
               formik.touched.fullName &&
               formik.values.fullName
@@ -84,16 +87,18 @@ const RegistrationForm = ({ id }) => {
         </div>
 
         <div>
-          <label htmlFor="email">Email</label>
-          <InputStyled
+          <TextField
+            id="outlined"
             type="text"
+            label="Email"
+            color="success"
             name="email"
             placeholder="Fill in your email"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            $error={formik.errors.email && formik.touched.email}
-            $success={
+            error={formik.errors.email && formik.touched.email}
+            success={
               !formik.errors.email &&
               formik.touched.email &&
               formik.values.email
@@ -115,16 +120,18 @@ const RegistrationForm = ({ id }) => {
         </div>
 
         <div>
-          <label htmlFor="dateOfBirth">Date of birth</label>
-          <InputStyled
+          <TextField
+            id="outlined"
             type="text"
+            label="Date of birth"
+            color="success"
             name="dateOfBirth"
             placeholder="YYYY-MM-DD"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.dateOfBirth}
-            $error={formik.errors.dateOfBirth && formik.touched.dateOfBirth}
-            $success={
+            error={formik.errors.dateOfBirth && formik.touched.dateOfBirth}
+            success={
               !formik.errors.dateOfBirth &&
               formik.touched.dateOfBirth &&
               formik.values.dateOfBirth
@@ -149,7 +156,9 @@ const RegistrationForm = ({ id }) => {
           ) : null}
         </div>
         <div>
+          <p>Where did you hear about this event?</p>
           <fieldset
+            style={{ maxWidth: "350px" }}
             id="info"
             label="Where did you hear about this event?"
             onChange={formik.handleChange}
@@ -183,11 +192,11 @@ const RegistrationForm = ({ id }) => {
           ) : null}
         </div>
 
-        <div>
-          <Link to={"/events"}>Back</Link>
-          <button type="submit">Registration</button>
-        </div>
-      </form>
+        <BoxStyled>
+          <LinkStyled to={"/events"}>Back</LinkStyled>
+          <ButtonStyled type="submit">Registration</ButtonStyled>
+        </BoxStyled>
+      </FormStyled>
     </div>
   );
 };

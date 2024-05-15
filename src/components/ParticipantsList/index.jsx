@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import ParticipantsItem from "../ParticipantsItem";
+import { ListStyled } from "./ParticipantsList.styled";
 
 const ParticipantsList = ({ listToRender }) => {
   ParticipantsList.propTypes = {
@@ -7,11 +8,11 @@ const ParticipantsList = ({ listToRender }) => {
   };
 
   return (
-    <ul>
+    <ListStyled>
       {listToRender.map((item) => (
         <ParticipantsItem item={item} key={item._id} />
       ))}
-    </ul>
+    </ListStyled>
   );
 };
 

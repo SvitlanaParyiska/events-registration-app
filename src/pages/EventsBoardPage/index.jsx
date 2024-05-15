@@ -6,6 +6,7 @@ import { selectEvents, selectFilter } from "../../redux/eventsSelectors";
 import EventsList from "../../components/EventsList";
 import PaginationList from "../../components/PaginationList";
 import FiltersEvents from "../../components/FiltersEvents";
+import { BoxStyled } from "./EventsBoardPage.styled";
 
 const EventsBoardPage = () => {
   const [page, setPage] = useState(1);
@@ -30,13 +31,13 @@ const EventsBoardPage = () => {
           <EventsList listToRender={eventsData.events} />
         </>
       )}
-      <div>
+      <BoxStyled>
         <PaginationList
           page={page}
           handlePage={handlePage}
           totalPages={eventsData?.totalPages}
         />
-      </div>
+      </BoxStyled>
     </div>
   );
 };
