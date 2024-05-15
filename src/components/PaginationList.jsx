@@ -22,7 +22,7 @@ const PaginationList = ({ page, handlePage, totalPages }) => {
       count={totalPages}
       page={page}
       variant="outlined"
-      color="secondary"
+      color="success"
       onChange={handleChange}
       showFirstButton
       showLastButton

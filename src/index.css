@@ -4,8 +4,8 @@
   /* background */
   --bg-primary: #fbfbfb;
   --bg-color: #f3f3f3;
-  --bg-secondary: #103931;
-  --bg-color-accent: rgba(16, 57, 49, 0.2);
+  --bg-secondary: #262f34;
+  --bg-color-accent: #06dfba;
 
   /* text */
   --color-text-primary: rgba(17, 16, 28, 0.5);
@@ -22,27 +22,27 @@
   font-family: "Inter";
   font-weight: 400;
   src: local("Inter"),
-    url("./fonts/InterRegular/Inter-Regular.woff2") format("woff2"),
-    url("./fonts/InterRegular/Inter-Regular.woff") format("woff"),
-    url("./fonts/InterRegular/Inter-Regular.ttf") format("truetype");
+    url("/fonts/InterRegular/Inter-Regular.woff2") format("woff2"),
+    url("/fonts/InterRegular/Inter-Regular.woff") format("woff"),
+    url("/fonts/InterRegular/Inter-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Inter";
   font-weight: 500;
   src: local("Inter"),
-    url("./fonts/InterMedium/Inter-Medium.woff2") format("woff2"),
-    url("./fonts/InterMedium/Inter-Medium.woff") format("woff"),
-    url("./fonts/InterMedium/Inter-Medium.ttf") format("truetype");
+    url("/fonts/InterRegular/Inter-Regular.woff2") format("woff2"),
+    url("/fonts/InterMedium/Inter-Medium.woff") format("woff"),
+    url("/fonts/InterMedium/Inter-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Inter";
   font-weight: 600;
   src: local("Inter"),
-    url("./fonts/InterSemiBold/Inter-SemiBold.woff2") format("woff2"),
-    url("./fonts/InterSemiBold/Inter-SemiBold.woff") format("woff"),
-    url("./fonts/InterSemiBold/Inter-SemiBold.ttf") format("truetype");
+    url("/fonts/InterSemiBold/Inter-SemiBold.woff2") format("woff2"),
+    url("/fonts/InterSemiBold/Inter-SemiBold.woff") format("woff"),
+    url("/fonts/InterSemiBold/Inter-SemiBold.ttf") format("truetype");
 }
 
 *,

@@ -15,7 +15,7 @@ export const addParticipantsSchema = yup.object().shape({
     .matches(emailRegexp, "Enter a correct email"),
   dateOfBirth: yup
     .string()
-    .matches(birthdayRegex, "Invalid birthday")
+    .matches(birthdayRegex, "Invalid, fill in YYYY-MM-DD")
     .required("Required"),
   info: yup
     .string()

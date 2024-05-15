@@ -1,18 +1,38 @@
-// import { useLocation } from "react-router-dom";
-
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import Logo from "/images/images.png";
+import { HeaderStyled, ImageStyled, LinkStyled, NavBox } from "./Header.styled";
 
 const Header = () => {
-  // const currentUrl = useLocation();
+  const currentUrl = useLocation();
 
   return (
-    <div className="header-container">
-      <nav>
-        <NavLink to="/">Logo</NavLink>
-        <NavLink to="/events">Events</NavLink>
-        <NavLink to="/favorites">favorites</NavLink>
-      </nav>
-    </div>
+    <HeaderStyled>
+      <div className="header-container">
+        <NavBox>
+          <NavLink to="/">
+            <ImageStyled src={Logo} alt="logo" />
+          </NavLink>
+          <LinkStyled
+            to="/"
+            className={currentUrl.pathname === "/" && "active"}
+          >
+            Home
+          </LinkStyled>
+          <LinkStyled
+            to="/events"
+            className={currentUrl.pathname === "/events" && "active"}
+          >
+            Events
+          </LinkStyled>
+          <LinkStyled
+            to="/favorites"
+            className={currentUrl.pathname === "/favorites" && "active"}
+          >
+            Favorites events
+          </LinkStyled>
+        </NavBox>
+      </div>
+    </HeaderStyled>
   );
 };
 
