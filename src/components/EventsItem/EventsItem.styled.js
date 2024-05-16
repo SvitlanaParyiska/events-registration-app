@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const LinkStyled = styled(Link)`
   display: inline-block;
-  border-radius: 12px;
+  border-radius: 5px;
   padding: 12px 20px;
   background-color: #45b39d;
   font-weight: 400;

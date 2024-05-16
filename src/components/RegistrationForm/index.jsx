@@ -8,6 +8,7 @@ import {
   BoxStyled,
   ButtonStyled,
   ErrorMessage,
+  FieldsetStyled,
   FormStyled,
   LinkStyled,
 } from "./RegistrationForm.styled";
@@ -28,7 +29,6 @@ const RegistrationForm = ({ id }) => {
     },
     validationSchema: addParticipantsSchema,
     onSubmit: async (values, actions) => {
-
       dispatch(
         addNewParticipant({
           id,
@@ -157,8 +157,7 @@ const RegistrationForm = ({ id }) => {
         </div>
         <div>
           <p>Where did you hear about this event?</p>
-          <fieldset
-            style={{ maxWidth: "350px" }}
+          <FieldsetStyled
             id="info"
             label="Where did you hear about this event?"
             onChange={formik.handleChange}
@@ -179,7 +178,7 @@ const RegistrationForm = ({ id }) => {
               <input type="radio" name="info" value="findMyself" />
               Found myself
             </label>
-          </fieldset>
+          </FieldsetStyled>
           {(formik.errors.info && formik.touched.info) ||
           (!formik.errors.info && formik.touched.info) ? (
             <ErrorMessage

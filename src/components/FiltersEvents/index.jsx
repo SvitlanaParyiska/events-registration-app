@@ -5,6 +5,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/eventsSlice";
+import { BoxStyled, ButtonStyled } from "./FiltersEvents.styled";
 
 const FiltersEvents = () => {
   const [titleFilter, setTitleFilter] = useState("");
@@ -25,13 +26,13 @@ const FiltersEvents = () => {
 
   return (
     <div>
-      <h3>Filters:</h3>
-      <div>
+      <BoxStyled>
         <TextField
           id="outlined"
           type="text"
           label="Title"
           color="success"
+          placeholder="Fill in title"
           focused
           value={titleFilter}
           onChange={(event) => {
@@ -44,6 +45,9 @@ const FiltersEvents = () => {
             value={dateFilter}
             format="YYYY-MM-DD"
             views={["year", "month", "day"]}
+            sx={{
+              maxWidth: 230,
+            }}
             onChange={(newValue) => setDateFilter(newValue)}
             slotProps={{
               textField: () => ({
@@ -58,16 +62,17 @@ const FiltersEvents = () => {
           type="text"
           label="Organizer"
           color="success"
+          placeholder="Fill in organizer"
           value={organizerFilter}
           focused
           onChange={(event) => {
             setOrganizerFilter(event.target.value);
           }}
         />
-      </div>
-      <button type="button" onClick={handleSearch}>
-        Search
-      </button>
+        <ButtonStyled type="button" onClick={handleSearch}>
+          Search
+        </ButtonStyled>
+      </BoxStyled>
     </div>
   );
 };

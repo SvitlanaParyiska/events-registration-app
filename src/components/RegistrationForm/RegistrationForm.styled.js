@@ -9,6 +9,9 @@ export const FormStyled = styled.form`
   border: 1px solid var(--color-text-accent);
   border-radius: 5px;
   padding: 10px;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const ErrorMessage = styled.div`
@@ -58,14 +61,30 @@ export const InputStyled = styled.input`
 
 export const BoxStyled = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 15px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+export const FieldsetStyled = styled.fieldset`
+  max-width: 350px;
+  margin-top: 7px;
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  gap: 7px;
 `;
 
 export const LinkStyled = styled(Link)`
   display: inline-block;
-  margin-top: 44px;
-  border-radius: 12px;
-  padding: 12px 20px;
+  width: 130px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
   background-color: #45b39d;
   font-weight: 400;
   font-size: 16px;
@@ -82,9 +101,12 @@ export const LinkStyled = styled(Link)`
 export const ButtonStyled = styled.button`
   display: block;
   border: none;
-  margin-top: 44px;
-  border-radius: 12px;
-  padding: 12px 20px;
+  border-radius: 5px;
+  width: 130px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #45b39d;
   font-weight: 400;
   font-size: 16px;

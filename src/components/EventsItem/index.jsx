@@ -41,7 +41,7 @@ const EventsItem = ({ item }) => {
       <Card sx={{ maxWidth: 345, height: 500 }}>
         <CardMedia
           sx={{ height: 140 }}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image={"/static/images/cards/contemplative-reptile.jpg"}
           title="green iguana"
         />
 
