@@ -98,25 +98,39 @@ img {
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 100px 50px 100px 50px;
+  padding: 100px 20px 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 120px 50px 50px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    padding: 152px 128px 100px 128px;
+    padding: 120px 128px 80px 128px;
   }
 }
 
 .header-container {
   width: 100%;
   margin: 0 auto;
-  padding: 20px 50px;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-container {
+    max-width: 768px;
+    padding: 0 50px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .header-container {
     max-width: 1440px;
-    padding: 20px 128px;
+    padding: 0 128px;
   }
 }

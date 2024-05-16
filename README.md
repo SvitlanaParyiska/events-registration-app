@@ -36,3 +36,5 @@ and quickly fill out the registration form.
 [Link to site](https://events-registration-app-tau.vercel.app/ "Events registration App")
 
 ![GitHub ReadMe](./public/images/readme.PNG)
+
+![GitHub ReadMe](./public/images/readme2.PNG)

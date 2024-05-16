@@ -5,12 +5,17 @@ export const HeaderStyled = styled.header`
   background-color: var(--bg-secondary);
   width: 100%;
   height: 80px;
+  position: fixed;
   z-index: 2;
   display: flex;
   align-items: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3),
     -23px 0 20px -23px rgba(0, 0, 0, 0.6), 23px 0 20px -23px rgba(0, 0, 0, 0.6),
     inset 0 0 40px rgba(0, 0, 0, 0.1);
+
+  @media screen and (min-width: 768px) {
+    height: 100px;
+  }
 `;
 
 export const NavBox = styled.nav`
@@ -21,8 +26,13 @@ export const NavBox = styled.nav`
 `;
 
 export const ImageStyled = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+
+  @media screen and (min-width: 768px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 export const LinkStyled = styled(NavLink)`
