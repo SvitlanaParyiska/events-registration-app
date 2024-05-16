@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/eventsSelectors";
 import toast from "react-hot-toast";
 import { addFavorite, removeFavorite } from "../../redux/eventsSlice";
+import defaultPicture from "../../../public/images/placeholder.webp";
 
 const EventsItem = ({ item }) => {
   EventsItem.propTypes = {
@@ -41,7 +42,7 @@ const EventsItem = ({ item }) => {
       <Card sx={{ maxWidth: 320, height: 500 }}>
         <CardMedia
           sx={{ height: 140 }}
-          image={item.imgUrl}
+          image={item.imgUrl ? item.imgUrl : defaultPicture}
           title="event logo"
           component="img"
         />

@@ -12,7 +12,6 @@ const FiltersEvents = () => {
   const [dateFilter, setDateFilter] = useState(null);
   const [organizerFilter, setOrganizerFilter] = useState("");
   const dispatch = useDispatch();
-  console.log(dateFilter);
 
   const handleSearch = () => {
     dispatch(
