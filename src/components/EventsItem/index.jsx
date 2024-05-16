@@ -38,11 +38,12 @@ const EventsItem = ({ item }) => {
   };
   return (
     <li>
-      <Card sx={{ maxWidth: 345, height: 500 }}>
+      <Card sx={{ maxWidth: 320, height: 500 }}>
         <CardMedia
           sx={{ height: 140 }}
-          image={"/static/images/cards/contemplative-reptile.jpg"}
-          title="green iguana"
+          image={item.imgUrl}
+          title="event logo"
+          component="img"
         />
 
         <CardContent>

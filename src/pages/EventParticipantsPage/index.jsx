@@ -5,6 +5,7 @@ import { getEventInfo } from "../../redux/eventsOperations";
 import { selectEventInfo } from "../../redux/eventsSelectors";
 import Title from "../../components/Title";
 import ParticipantsList from "../../components/ParticipantsList";
+import Search from "../../components/Search";
 
 const EventParticipantsPage = () => {
   const { id } = useParams();
@@ -23,9 +24,15 @@ const EventParticipantsPage = () => {
         <>
           <Title text={`"${eventFullInfo.title}" participants`} />
           {eventFullInfo.participants.length > 0 ? (
-            <ParticipantsList listToRender={eventFullInfo.participants} />
+            <>
+              <Search />
+              <ParticipantsList />
+            </>
           ) : (
-            <p>The list of Participants is still empty</p>
+            <p style={{ textAlign: "center", marginTop: "20px" }}>
+              {" "}
+              The list of Participants is still empty
+            </p>
           )}
         </>
       )}

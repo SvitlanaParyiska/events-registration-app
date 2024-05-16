@@ -9,6 +9,8 @@ const initialState = {
   eventFull: null,
   favorites: [],
   filter: { title: "", date: "", organizer: "" },
+  searchName: "",
+  searchEmail: "",
   isLoading: false,
   error: null,
 };
@@ -41,6 +43,12 @@ const eventsSlice = createSlice({
     setFilter: (state, { payload }) => {
       state.filter = payload;
     },
+    setSearchName(state, { payload }) {
+      state.searchName = payload;
+    },
+    setSearchEmail(state, { payload }) {
+      state.searchEmail = payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -61,5 +69,11 @@ const eventsSlice = createSlice({
   },
 });
 
-export const { addFavorite, removeFavorite, setFilter } = eventsSlice.actions;
+export const {
+  addFavorite,
+  removeFavorite,
+  setFilter,
+  setSearchName,
+  setSearchEmail,
+} = eventsSlice.actions;
 export const eventsReducer = eventsSlice.reducer;
