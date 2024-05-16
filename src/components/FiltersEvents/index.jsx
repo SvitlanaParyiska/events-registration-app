@@ -4,8 +4,18 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setFilter } from "../../redux/eventsSlice";
-import { BoxStyled, ButtonStyled } from "./FiltersEvents.styled";
+import { resetFilter, setFilter } from "../../redux/eventsSlice";
+import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+import {
+  BoxStyled,
+  ButtonStyled,
+  ButtonStyledReset,
+} from "./FiltersEvents.styled";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const FiltersEvents = () => {
   const [titleFilter, setTitleFilter] = useState("");
@@ -17,10 +27,15 @@ const FiltersEvents = () => {
     dispatch(
       setFilter({
         title: titleFilter,
-        date: dateFilter?.toJSON(),
+        date: dateFilter?.toJSON().slice(0, 10),
         organizer: organizerFilter,
       })
     );
+  };
+
+  const resetSearch = () => {
+    dispatch(resetFilter());
+    setDateFilter(null);
   };
 
   return (
@@ -44,6 +59,7 @@ const FiltersEvents = () => {
             value={dateFilter}
             format="YYYY-MM-DD"
             views={["year", "month", "day"]}
+            timezone="UTC"
             sx={{
               maxWidth: 230,
             }}
@@ -71,6 +87,9 @@ const FiltersEvents = () => {
         <ButtonStyled type="button" onClick={handleSearch}>
           Search
         </ButtonStyled>
+        <ButtonStyledReset type="button" onClick={resetSearch}>
+          Reset filters
+        </ButtonStyledReset>
       </BoxStyled>
     </div>
   );

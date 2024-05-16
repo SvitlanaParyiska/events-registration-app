@@ -9,19 +9,21 @@ const EventsFavoritesPage = () => {
   const favArr = useSelector(selectFavorites);
 
   return (
-    <div className="container">
-      {favArr?.length > 0 ? (
-        <>
-          <Title text={"Your favorites list"} />
-          <EventsList listToRender={favArr} />
-        </>
-      ) : (
-        <>
-          <p>Your favorites list is empty.</p>
-          <LinkStyled to="/events">View the list of events</LinkStyled>
-        </>
-      )}
-    </div>
+    <section>
+      <div className="container">
+        {favArr?.length > 0 ? (
+          <>
+            <Title text={"Your favorites list"} />
+            <EventsList listToRender={favArr} />
+          </>
+        ) : (
+          <>
+            <p>Your favorites list is empty.</p>
+            <LinkStyled to="/events">View the list of events</LinkStyled>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 

@@ -26,3 +26,21 @@ export const ButtonStyled = styled.button`
     background-color: #16a085;
   }
 `;
+
+export const ButtonStyledReset = styled.button`
+  display: block;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 30px;
+  background-color: #f5b7b1;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.43;
+  color: #fff;
+  transition: var(--transition);
+
+  &:hover,
+  &:focus {
+    background-color: #ec7063;
+  }
+`;

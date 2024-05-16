@@ -17,3 +17,14 @@ export const LinkStyled = styled(Link)`
     background-color: #16a085;
   }
 `;
+
+export const DivStyled = styled.div`
+  position: absolute;
+  background-color: #ec7063;
+  border: 10px;
+  padding: 5px;
+  p {
+    font-size: 14px;
+    font-weight: 700;
+  }
+`;

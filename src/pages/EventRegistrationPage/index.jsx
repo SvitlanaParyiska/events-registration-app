@@ -1,13 +1,13 @@
 import RegistrationForm from "../../components/RegistrationForm";
-import Title from "../../components/Title";
 import { useParams } from "react-router-dom";
+import { TitleStyled } from "./EventRegistrationPage.styled";
 
 const EventRegistrationPage = () => {
   const { id } = useParams();
 
   return (
     <div className="container">
-      <Title text={"Event registration"} />
+      <TitleStyled>Event registration</TitleStyled>
       <RegistrationForm id={id} />
     </div>
   );

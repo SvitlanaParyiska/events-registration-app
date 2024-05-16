@@ -43,6 +43,9 @@ const eventsSlice = createSlice({
     setFilter: (state, { payload }) => {
       state.filter = payload;
     },
+    resetFilter: (state) => {
+      state.filter = { title: "", date: "", organizer: "" };
+    },
     setSearchName(state, { payload }) {
       state.searchName = payload;
     },
@@ -73,6 +76,7 @@ export const {
   addFavorite,
   removeFavorite,
   setFilter,
+  resetFilter,
   setSearchName,
   setSearchEmail,
 } = eventsSlice.actions;

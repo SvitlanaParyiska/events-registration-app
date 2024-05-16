@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
+import { TitleStyled } from "./Title.styled";
 
 const Title = ({ text }) => {
   Title.propTypes = {
     text: PropTypes.string,
   };
 
-  return <h1 style={{ marginLeft: "160px" }}>{text}</h1>;
+  return <TitleStyled>{text}</TitleStyled>;
 };
 
 export default Title;

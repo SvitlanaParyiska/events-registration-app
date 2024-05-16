@@ -23,22 +23,28 @@ const EventsBoardPage = () => {
   };
 
   return (
-    <div className="container">
-      <Title text={"Events"} />
-      {eventsData.events?.length > 0 && (
-        <>
-          <FiltersEvents />
-          <EventsList listToRender={eventsData.events} />
-        </>
-      )}
-      <BoxStyled>
-        <PaginationList
-          page={page}
-          handlePage={handlePage}
-          totalPages={eventsData?.totalPages}
-        />
-      </BoxStyled>
-    </div>
+    <section>
+      <div className="container">
+        <Title text={"Events"} />
+        <FiltersEvents />
+        {eventsData.events?.length > 0 ? (
+          <>
+            <EventsList listToRender={eventsData.events} />
+            <BoxStyled>
+              <PaginationList
+                page={page}
+                handlePage={handlePage}
+                totalPages={eventsData?.totalPages}
+              />
+            </BoxStyled>
+          </>
+        ) : (
+          <p>
+            There are no events to this filters. Try to change filters params...
+          </p>
+        )}
+      </div>
+    </section>
   );
 };
 

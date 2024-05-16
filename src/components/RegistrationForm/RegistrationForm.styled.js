@@ -12,6 +12,11 @@ export const FormStyled = styled.form`
   max-width: 360px;
   margin-left: auto;
   margin-right: auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 500px;
+    padding: 30px;
+  }
 `;
 
 export const ErrorMessage = styled.div`
@@ -79,7 +84,7 @@ export const FieldsetStyled = styled.fieldset`
 
 export const LinkStyled = styled(Link)`
   display: inline-block;
-  width: 130px;
+  width: 70px;
   height: 45px;
   display: flex;
   justify-content: center;
@@ -96,13 +101,21 @@ export const LinkStyled = styled(Link)`
   &:focus {
     background-color: #16a085;
   }
+
+  @media screen and (min-width: 375px) {
+    width: 110px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 130px;
+  }
 `;
 
 export const ButtonStyled = styled.button`
   display: block;
   border: none;
   border-radius: 5px;
-  width: 130px;
+  width: 110px;
   height: 45px;
   display: flex;
   justify-content: center;
@@ -117,5 +130,9 @@ export const ButtonStyled = styled.button`
   &:hover,
   &:focus {
     background-color: #16a085;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 130px;
   }
 `;

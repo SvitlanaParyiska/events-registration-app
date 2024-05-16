@@ -7,7 +7,7 @@ const ParticipantsItem = ({ item }) => {
   };
   return (
     <li>
-      <Card sx={{ width: 300 }}>
+      <Card sx={{ width: 270, height: 180 }}>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {item.name}

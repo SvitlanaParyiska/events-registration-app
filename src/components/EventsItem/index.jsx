@@ -4,7 +4,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { LinkStyled } from "./EventsItem.styled";
+import { LinkStyled, DivStyled } from "./EventsItem.styled";
 import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/eventsSelectors";
 import toast from "react-hot-toast";
 import { addFavorite, removeFavorite } from "../../redux/eventsSlice";
-import defaultPicture from "../../../public/images/placeholder.webp";
+import defaultPicture from "/images/placeholder.webp";
 
 const EventsItem = ({ item }) => {
   EventsItem.propTypes = {
@@ -39,29 +39,51 @@ const EventsItem = ({ item }) => {
   };
   return (
     <li>
-      <Card sx={{ maxWidth: 320, height: 500 }}>
-        <CardMedia
-          sx={{ height: 140 }}
-          image={item.imgUrl ? item.imgUrl : defaultPicture}
-          title="event logo"
-          component="img"
-        />
+      <Card
+        sx={{
+          maxWidth: 320,
+          height: 500,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          position: "relative",
+        }}
+      >
+        <div>
+          <CardMedia
+            sx={{ height: 140 }}
+            image={item.imgUrl ? item.imgUrl : defaultPicture}
+            title="event logo"
+            component="img"
+          />
 
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {item.title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {item.description}
-          </Typography>
-        </CardContent>
-        <CardActions sx={{}}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {item.title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {item.description}
+            </Typography>
+          </CardContent>
+        </div>
+
+        <CardActions
+          sx={{
+            display: "flex",
+            paddingTop: "0px",
+            paddingLeft: "0px",
+            justifyContent: "center",
+          }}
+        >
           <IconButton aria-label="add to favorites" onClick={handleFav}>
             {fav ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
           <LinkStyled to={`/registration/${item._id}`}>Register</LinkStyled>
           <LinkStyled to={`/participants/${item._id}`}>View</LinkStyled>
         </CardActions>
+        <DivStyled>
+          <p>{item.eventDate.slice(0, 10)}</p>
+        </DivStyled>
       </Card>
     </li>
   );
