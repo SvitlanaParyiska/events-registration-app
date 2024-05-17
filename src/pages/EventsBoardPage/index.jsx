@@ -2,7 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Title from "../../components/Title";
 import { useEffect, useState } from "react";
 import { getEventsList } from "../../redux/eventsOperations";
-import { selectEvents, selectFilter } from "../../redux/eventsSelectors";
+import {
+  selectEvents,
+  selectFilter,
+  selectIsLoading,
+} from "../../redux/eventsSelectors";
 import EventsList from "../../components/EventsList";
 import PaginationList from "../../components/PaginationList";
 import FiltersEvents from "../../components/FiltersEvents";
@@ -13,6 +17,7 @@ const EventsBoardPage = () => {
   const dispatch = useDispatch();
   const eventsData = useSelector(selectEvents);
   const filterSearch = useSelector(selectFilter);
+  const loading = useSelector(selectIsLoading);
 
   useEffect(() => {
     dispatch(getEventsList({ page, ...filterSearch }));
@@ -27,7 +32,7 @@ const EventsBoardPage = () => {
       <div className="container">
         <Title text={"Events"} />
         <FiltersEvents />
-        {eventsData.events?.length > 0 ? (
+        {eventsData.events?.length > 0 && !loading ? (
           <>
             <EventsList listToRender={eventsData.events} />
             <BoxStyled>
