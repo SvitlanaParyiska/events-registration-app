@@ -28,3 +28,16 @@ export const DivStyled = styled.div`
     font-weight: 700;
   }
 `;
+
+export const BoxStyled = styled.div`
+  position: absolute;
+  right: 0;
+  background-color: #45b39d;
+  border: 10px;
+  padding: 5px;
+
+  p {
+    font-size: 14px;
+    font-weight: 700;
+  }
+`;

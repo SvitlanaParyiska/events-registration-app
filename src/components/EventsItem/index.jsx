@@ -4,7 +4,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { LinkStyled, DivStyled } from "./EventsItem.styled";
+import { LinkStyled, DivStyled, BoxStyled } from "./EventsItem.styled";
 import { IconButton } from "@mui/material";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -84,6 +84,9 @@ const EventsItem = ({ item }) => {
         <DivStyled>
           <p>{item.eventDate.slice(0, 10)}</p>
         </DivStyled>
+        <BoxStyled>
+          <p>{item.organizer}</p>
+        </BoxStyled>
       </Card>
     </li>
   );
