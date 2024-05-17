@@ -6,6 +6,7 @@ import { selectEventInfo } from "../../redux/eventsSelectors";
 import Title from "../../components/Title";
 import ParticipantsList from "../../components/ParticipantsList";
 import Search from "../../components/Search";
+import { LinkStyled } from "./EventParticipantsPage.styled";
 
 const EventParticipantsPage = () => {
   const { id } = useParams();
@@ -36,6 +37,7 @@ const EventParticipantsPage = () => {
           )}
         </>
       )}
+      <LinkStyled to="/events">Back</LinkStyled>
     </div>
   );
 };
