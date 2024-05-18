@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { getEventInfo } from "../../redux/eventsOperations";
 import { selectEventInfo } from "../../redux/eventsSelectors";
 import Title from "../../components/Title";
@@ -12,6 +12,9 @@ const EventParticipantsPage = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const eventFullInfo = useSelector(selectEventInfo);
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/";
+  const ref = useRef(backLinkHref);
 
   useEffect(() => {
     if (id) {
@@ -31,13 +34,12 @@ const EventParticipantsPage = () => {
             </>
           ) : (
             <p style={{ textAlign: "center", marginTop: "20px" }}>
-              {" "}
               The list of Participants is still empty
             </p>
           )}
         </>
       )}
-      <LinkStyled to="/events">Back</LinkStyled>
+      <LinkStyled to={ref.current}>Back</LinkStyled>
     </div>
   );
 };

@@ -30,7 +30,9 @@ export const DivStyled = styled.div`
 `;
 
 export const BoxStyled = styled.div`
+  max-width: 150px;
   position: absolute;
+  text-align: center;
   right: 0;
   background-color: #45b39d;
   border: 10px;

@@ -44,7 +44,7 @@ const EventsBoardPage = () => {
             </BoxStyled>
           </>
         )}
-        {loading && eventsData.events?.length > 0 && (
+        {!loading && eventsData?.events.length === 0 && (
           <p>
             There are no events to this filters. Try to change filters params...
           </p>

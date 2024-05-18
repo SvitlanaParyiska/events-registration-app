@@ -26,9 +26,9 @@ const FiltersEvents = () => {
   const handleSearch = () => {
     dispatch(
       setFilter({
-        title: titleFilter,
+        title: titleFilter.trim(),
         date: dateFilter?.toJSON().slice(0, 10),
-        organizer: organizerFilter,
+        organizer: organizerFilter.trim(),
       })
     );
   };
@@ -36,6 +36,8 @@ const FiltersEvents = () => {
   const resetSearch = () => {
     dispatch(resetFilter());
     setDateFilter(null);
+    setTitleFilter("");
+    setOrganizerFilter("");
   };
 
   return (

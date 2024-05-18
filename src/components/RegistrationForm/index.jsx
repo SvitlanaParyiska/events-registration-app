@@ -13,12 +13,17 @@ import {
   LinkStyled,
 } from "./RegistrationForm.styled";
 import { TextField } from "@mui/material";
+import { useLocation } from "react-router-dom";
+import { useRef } from "react";
 
 const RegistrationForm = ({ id }) => {
   RegistrationForm.propTypes = {
     id: PropTypes.string,
   };
   const dispatch = useDispatch();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? "/";
+  const ref = useRef(backLinkHref);
 
   const formik = useFormik({
     initialValues: {
@@ -192,7 +197,7 @@ const RegistrationForm = ({ id }) => {
         </div>
 
         <BoxStyled>
-          <LinkStyled to={"/events"}>Back</LinkStyled>
+          <LinkStyled to={ref.current}>Back</LinkStyled>
           <ButtonStyled type="submit">Registration</ButtonStyled>
         </BoxStyled>
       </FormStyled>

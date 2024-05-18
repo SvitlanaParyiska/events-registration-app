@@ -13,12 +13,14 @@ import { selectFavorites } from "../../redux/eventsSelectors";
 import toast from "react-hot-toast";
 import { addFavorite, removeFavorite } from "../../redux/eventsSlice";
 import defaultPicture from "/images/placeholder.webp";
+import { useLocation } from "react-router-dom";
 
 const EventsItem = ({ item }) => {
   EventsItem.propTypes = {
     item: PropTypes.object,
   };
 
+  const location = useLocation();
   const dispatch = useDispatch();
   const favList = useSelector(selectFavorites);
 
@@ -78,8 +80,18 @@ const EventsItem = ({ item }) => {
           <IconButton aria-label="add to favorites" onClick={handleFav}>
             {fav ? <FavoriteIcon /> : <FavoriteBorderIcon />}
           </IconButton>
-          <LinkStyled to={`/registration/${item._id}`}>Register</LinkStyled>
-          <LinkStyled to={`/participants/${item._id}`}>View</LinkStyled>
+          <LinkStyled
+            to={`/registration/${item._id}`}
+            state={{ from: location }}
+          >
+            Register
+          </LinkStyled>
+          <LinkStyled
+            to={`/participants/${item._id}`}
+            state={{ from: location }}
+          >
+            View
+          </LinkStyled>
         </CardActions>
         <DivStyled>
           <p>{item.eventDate.slice(0, 10)}</p>
